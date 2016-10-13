@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Nicholas\Source\Repos\ixperial\ixperial\luajit-master\src\host\buildvm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Nicholas\Source\Repos\ixperial\ixperial\luajit-master\src\host\buildvm_asm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Nicholas\Source\Repos\ixperial\ixperial\luajit-master\src\host\buildvm_fold.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Nicholas\Source\Repos\ixperial\ixperial\luajit-master\src\host\buildvm_lib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Nicholas\Source\Repos\ixperial\ixperial\luajit-master\src\host\buildvm_peobj.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Nicholas\Source\Repos\ixperial\ixperial\luajit-master\src\host\buildvm_arch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Nicholas\Source\Repos\ixperial\ixperial\luajit-master\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Nicholas\Source\Repos\ixperial\ixperial\luajit-master\CMakeFiles\9d90a0a47db58ec75b5e99cc71f387fc\buildvm_arch.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4ABCAA22-53E2-39B6-ABC9-EAD33FFE8801}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{AA131437-E8D0-34F1-9F99-0D5042A6013D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{3D44894B-5669-3D6C-8109-15D84A73E95F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
