@@ -13,10 +13,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <memory>
 
 #include <lua.hpp>
 #include <LuaBridge.h>
 
+#include "baseclient.h"
+#include "netvar-manager.h"
 #include "vmt-hook.h"
 #include "lua-api.h"
 #include "ixperial-main.h"

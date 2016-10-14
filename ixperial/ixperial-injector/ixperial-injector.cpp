@@ -17,7 +17,7 @@ int main()
 	char DllPath[MAX_PATH] = { 0 };
 	GetFullPathName("ixperial-main.dll", MAX_PATH, DllPath, NULL);
 
-	ProcessHelper::InjectDLL(DllPath, pid, ProcessHelper::DLL_INJECTION_CRT);
+	std::cout << ProcessHelper::InjectDLL(DllPath, pid, ProcessHelper::DLL_INJECTION_CRT);
 
     return 0;
 }

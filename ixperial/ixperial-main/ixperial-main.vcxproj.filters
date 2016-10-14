@@ -16,6 +16,9 @@
     <Filter Include="LuaAPI">
       <UniqueIdentifier>{e2d67e62-b23a-4a80-98e8-d6893bc79026}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{8a362e3d-e013-4d84-86e0-695efffc2c91}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -36,6 +39,18 @@
     <ClInclude Include="lua-api.h">
       <Filter>LuaAPI</Filter>
     </ClInclude>
+    <ClInclude Include="netvar-manager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="baseclient.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="dt_recv.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -52,6 +67,15 @@
     </ClCompile>
     <ClCompile Include="lua-api.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="common.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="baseclient.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="netvar-manager.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
