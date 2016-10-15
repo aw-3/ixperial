@@ -1,5 +1,8 @@
 #pragma once
 
+#include "lua-event.h"
+#include "lua-entity.h"
+
 class LuaCS
 {
 public:
@@ -7,4 +10,9 @@ public:
 	~LuaCS();
 
 	lua_State* L;
+
+private:
+	void SetupClasses();
 };
+
+extern LuaCS *luacs;

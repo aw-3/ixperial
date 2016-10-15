@@ -51,6 +51,12 @@
     <ClInclude Include="common.h">
       <Filter>Engine</Filter>
     </ClInclude>
+    <ClInclude Include="lua-entity.h">
+      <Filter>LuaAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="lua-event.h">
+      <Filter>LuaAPI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
