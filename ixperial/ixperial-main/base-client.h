@@ -7,6 +7,7 @@ namespace CSGO {
 	class ClientClass;
 
 	Client* GetClient();
+	void* GetClientHandle();
 
 	class Client
 	{

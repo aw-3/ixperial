@@ -30,10 +30,18 @@ void VMTHook::Hook(std::string name, void *tablePtr)
 	vm->origVmt = *(void**)tablePtr;
 
 	// get method count
-	for (vm->idxCount = 0; ((int*)vm->origVmt)[vm->idxCount]; vm->idxCount++) {
-		if (IsBadCodePtr((FARPROC)((int*)vm->origVmt)[vm->idxCount]))
-			break;
+	try
+	{
+		for (vm->idxCount = 0; ((int*)vm->origVmt)[vm->idxCount]; vm->idxCount++) {
+			if (IsBadCodePtr((FARPROC)((int*)vm->origVmt)[vm->idxCount]))
+				break;
+		}
 	}
+	catch (...) // please god don't VAC ban me for exception handling
+	{
+		vm->idxCount++; // just to be sure we don't miss
+	}
+	
 
 	// allocate new table
 	vm->newVmt = new int[vm->idxCount];

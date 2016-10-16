@@ -26,8 +26,13 @@ void LuaCS::SetupClasses()
 		.beginClass<LuaEntity>("entity")
 		.addConstructor<void(*)(int)>()
 		.addProperty("dormant", &LuaEntity::IsDormant)
-		
+		.addProperty("team", &LuaEntity::GetTeam)
+		.addProperty("flags", &LuaEntity::GetFlags)
+		.addProperty("health", &LuaEntity::GetHealth)
 		.endClass()
+
+		//.addCFunction("getLocalPlayer", &LuaEntity::GetLocalPlayer)
+
 		.endNamespace();
 	
 	// Event system
@@ -50,5 +55,16 @@ void LuaCS::SetupClasses()
 
 void LuaCS::SetupClosures()
 {
+	lua_pushcfunction(L, [](lua_State *L)
+		-> int
+		{
+			luaL_checktype(L, 1, LUA_TSTRING);
+			MessageBoxA(0, lua_tostring(L, 1), "Alert", 0);
+			return 0;
+		}
+	);
+	lua_setglobal(L, "alert");
 
+	
+	
 }

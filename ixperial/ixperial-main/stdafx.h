@@ -21,6 +21,7 @@
 #include "base-engine.h"
 #include "base-client.h"
 #include "netvar-manager.h"
+#include "SignatureScanner.h"
 #include "vmt-hook.h"
 #include "lua-api.h"
 #include "ixperial-main.h"
