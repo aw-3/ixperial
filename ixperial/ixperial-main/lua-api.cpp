@@ -4,14 +4,15 @@ using namespace luabridge;
 
 LuaCS *luacs = nullptr;
 
+std::vector<LuaEventBind*> LuaEvent::binds;
+
 LuaCS::LuaCS()
 {
 	L = luaL_newstate();
 	luaL_openlibs(L);
 
+	SetupClosures();
 	SetupClasses();
-
-	luaL_dostring(L, "local ent = csgo.entity(3);");
 }
 
 LuaCS::~LuaCS()
@@ -24,13 +25,30 @@ void LuaCS::SetupClasses()
 	getGlobalNamespace(L).beginNamespace("csgo")
 		.beginClass<LuaEntity>("entity")
 		.addConstructor<void(*)(int)>()
-		// .addProperty("pls", LuaEntity::getOffset, LuaEntity::setOffset);
+		.addProperty("dormant", &LuaEntity::IsDormant)
 		
 		.endClass()
 		.endNamespace();
 	
 	// Event system
-	getGlobalNamespace().beginNamespace("events")
-		.addCFunction("bind", (lua_CFunction)LuaEvent::Bind)
-		.endNamespace();
+	/*
+	died				entity player
+	respawned			entity player
+	tookDamage			entity player
+	bombPlanted			entity player
+	bombBeginDefuse		entity player
+	bombEndDefuse		entity player
+	*/
+
+	getGlobalNamespace(L)
+		.addCFunction("bindEvent", &LuaEvent::Bind)
+		.addCFunction("invokeEvent", &LuaEvent::Invoke)
+	.endNamespace();
+
+
+}
+
+void LuaCS::SetupClosures()
+{
+
 }

@@ -42,9 +42,6 @@
     <ClInclude Include="netvar-manager.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="baseclient.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="dt_recv.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -56,6 +53,12 @@
     </ClInclude>
     <ClInclude Include="lua-event.h">
       <Filter>LuaAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="base-engine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="base-client.h">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -71,17 +74,23 @@
     <ClCompile Include="vmt-hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lua-api.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="common.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="baseclient.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="netvar-manager.cpp">
       <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="base-client.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="base-engine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="lua-entity.cpp">
+      <Filter>LuaAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="lua-api.cpp">
+      <Filter>LuaAPI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -7,7 +7,10 @@ void Entrypoint(HMODULE hModule)
 	g_pVars = new Netvars(); // Netvars
 	luacs = new LuaCS();
 
-	MessageBoxA(0, std::to_string( g_pVars->GetOffset("DT_BasePlayer", "m_Local") ).data(), "", 0);
+	CSGO::LoadEngineHooks();
+	//MessageBoxA(0, std::to_string( g_pVars->GetOffset("DT_BasePlayer", "m_Local") ).data(), "", 0);
+
+	luaL_dostring(luacs->L, "bindEvent('createmove', function() csgo.entity(2).dormant; end)");
 
 	while (true)
 	{
@@ -19,5 +22,7 @@ void Entrypoint(HMODULE hModule)
 		}
 	}
 
-	FreeLibraryAndExitThread(hModule, 0);
+	CSGO::UnloadEngineHooks();
+
+	FreeLibraryAndExitThread(hModule, 0); // useless as shit because lua is still loaded into the process
 }

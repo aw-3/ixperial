@@ -18,7 +18,8 @@
 #include <lua.hpp>
 #include <LuaBridge.h>
 
-#include "baseclient.h"
+#include "base-engine.h"
+#include "base-client.h"
 #include "netvar-manager.h"
 #include "vmt-hook.h"
 #include "lua-api.h"

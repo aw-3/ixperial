@@ -3,11 +3,19 @@
 class LuaEntity
 {
 public:
-	LuaEntity(int idx)
+	LuaEntity(int i) : idx(i)
 	{
-		MessageBoxA(0, "constructor called", std::to_string(idx).c_str(), 0);
+		
 	}
 
-	// Impl methods
+	int idx;
 
+public:
+	// Read-only properties
+	bool IsDormant() const;
+	int GetTeam();
+	int GetFlags();
+	int GetHealth();
+	int GetArmor();
+	int ShotsFired();
 };

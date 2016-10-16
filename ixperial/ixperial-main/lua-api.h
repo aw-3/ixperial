@@ -13,6 +13,7 @@ public:
 
 private:
 	void SetupClasses();
+	void SetupClosures();
 };
 
 extern LuaCS *luacs;

@@ -5,5 +5,10 @@
 namespace CSGO {
 	typedef void* (*CreateInterfaceFn)(const char *pName, int *pReturnCode);
 
+	
+
 	void* GetInterface(std::string dll, std::string name);
+
+	void LoadEngineHooks();
+	void UnloadEngineHooks();
 }
