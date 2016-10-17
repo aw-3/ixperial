@@ -33,6 +33,7 @@ public:
 		luaL_checktype(L, 1, LUA_TSTRING);
 
 		std::string name = lua_tostring(L, 1);
+		unsigned int argc = lua_gettop(L) - 1;
 
 		for (auto it = binds.begin(); it != binds.end(); it++)
 		{
@@ -41,7 +42,11 @@ public:
 			if (bind->name == name)
 			{
 				lua_getref(L, bind->funcRef);
-				lua_pcall(L, 0, 0, 0);
+
+				for (int i = 0; i < argc; i++)
+					lua_pushvalue(L, i + 2);
+
+				lua_pcall(L, argc, 0, 0);
 			}
 		}
 

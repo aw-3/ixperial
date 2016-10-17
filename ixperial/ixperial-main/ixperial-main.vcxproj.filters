@@ -63,6 +63,18 @@
     <ClInclude Include="SignatureScanner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="utility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lua-ucmd.h">
+      <Filter>LuaAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="checksum.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="base-input.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -96,6 +108,18 @@
       <Filter>LuaAPI</Filter>
     </ClCompile>
     <ClCompile Include="SignatureScanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="checksum.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="lua-ucmd.cpp">
+      <Filter>LuaAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="base-input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

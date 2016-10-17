@@ -15,11 +15,18 @@
 #include <vector>
 #include <memory>
 
+// Luabridge RefCountedPtr uses hash_map which is deprecated
+#define _SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS
+
 #include <lua.hpp>
 #include <LuaBridge.h>
+#include <RefCountedPtr.h>
 
+#include "utility.h"
+#include "common.h"
 #include "base-engine.h"
 #include "base-client.h"
+#include "base-input.h"
 #include "netvar-manager.h"
 #include "SignatureScanner.h"
 #include "vmt-hook.h"

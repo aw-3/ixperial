@@ -13,7 +13,7 @@ public:
 
 public:
 	static void* GetEntityFromIndex(int i);
-	static void* GetLocalPlayer();
+	static RefCountedPtr<LuaEntity> GetLocalPlayer();
 
 public:
 	// Utility
@@ -26,4 +26,7 @@ public:
 	int GetHealth() const;
 	int GetArmor() const;
 	int ShotsFired() const;
+
+	// Write properties
+	void SetFlags(const int &fl);
 };

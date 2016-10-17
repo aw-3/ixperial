@@ -33,7 +33,8 @@ void VMTHook::Hook(std::string name, void *tablePtr)
 	try
 	{
 		for (vm->idxCount = 0; ((int*)vm->origVmt)[vm->idxCount]; vm->idxCount++) {
-			if (IsBadCodePtr((FARPROC)((int*)vm->origVmt)[vm->idxCount]))
+			if (((int*)vm->origVmt)[vm->idxCount] < 0x50000 || IsBadReadPtr((FARPROC)((int*)vm->origVmt)[vm->idxCount], 4) ||
+				IsBadCodePtr((FARPROC)((int*)vm->origVmt)[vm->idxCount]))
 				break;
 		}
 	}
