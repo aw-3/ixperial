@@ -1,5 +1,6 @@
 #pragma once
 
+#include "lua-vector.h"
 #include "lua-event.h"
 #include "lua-ucmd.h"
 #include "lua-entity.h"
@@ -15,8 +16,10 @@ public:
 	lua_State* L;
 
 private:
+	void Initialize();
 	void SetupClasses();
-	void SetupClosures();	
+	void SetupClosures();
+	void SetupGlobalConstants();
 };
 
 extern LuaCS *luacs;

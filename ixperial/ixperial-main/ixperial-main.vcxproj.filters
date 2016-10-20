@@ -75,6 +75,9 @@
     <ClInclude Include="base-input.h">
       <Filter>Engine</Filter>
     </ClInclude>
+    <ClInclude Include="lua-vector.h">
+      <Filter>LuaAPI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -121,6 +124,9 @@
     </ClCompile>
     <ClCompile Include="base-input.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lua-vector.cpp">
+      <Filter>LuaAPI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

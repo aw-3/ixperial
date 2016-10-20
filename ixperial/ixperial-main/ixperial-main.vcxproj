@@ -156,6 +156,7 @@
     <ClInclude Include="lua-entity.h" />
     <ClInclude Include="lua-event.h" />
     <ClInclude Include="lua-ucmd.h" />
+    <ClInclude Include="lua-vector.h" />
     <ClInclude Include="netvar-manager.h" />
     <ClInclude Include="SignatureScanner.h" />
     <ClInclude Include="stdafx.h" />
@@ -187,6 +188,7 @@
     <ClCompile Include="lua-api.cpp" />
     <ClCompile Include="lua-entity.cpp" />
     <ClCompile Include="lua-ucmd.cpp" />
+    <ClCompile Include="lua-vector.cpp" />
     <ClCompile Include="netvar-manager.cpp" />
     <ClCompile Include="SignatureScanner.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -20,9 +20,11 @@ void Entrypoint(HMODULE hModule)
 	{
 		Sleep(10);
 
-		if (GetAsyncKeyState(VK_DELETE))
+		if (GetAsyncKeyState(VK_DELETE) & 1) // for debug purposes
 		{
-			break;
+			delete luacs;
+			luacs = new LuaCS();
+			luacs->ExecuteAllScripts();
 		}
 	}
 

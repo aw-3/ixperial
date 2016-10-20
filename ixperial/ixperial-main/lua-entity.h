@@ -3,13 +3,12 @@
 class LuaEntity
 {
 public:
-	LuaEntity(int i) : idx(i)
+	LuaEntity(int i)
 	{
-		pEntity = (int)GetEntityFromIndex(idx);
+		pEntity = (int)GetEntityFromIndex(i);
 	}
 
 	mutable int pEntity; // should be void* or Entity* but int is a lot less hassle casting wise
-	int idx;
 
 public:
 	static void* GetEntityFromIndex(int i);
@@ -25,7 +24,8 @@ public:
 	int GetFlags() const;
 	int GetHealth() const;
 	int GetArmor() const;
-	int ShotsFired() const;
+	RefCountedPtr<LuaVector3> GetOrigin() const;
+	int GetShotsFired() const;
 
 	// Write properties
 	void SetFlags(const int &fl);

@@ -11,15 +11,19 @@ void* LuaEntity::GetEntityFromIndex(int i)
 
 RefCountedPtr<LuaEntity> LuaEntity::GetLocalPlayer()
 {
-	int localIndex = CSGO::GetEngine()->GetLocalPlayer();
-	return RefCountedPtr<LuaEntity>(new LuaEntity(localIndex));
+	static void* lpPtr = (int*)sigScan((int)CSGO::GetClientHandle(), "\xA3\x00\x00\x00\x00\xC7\x05\x00\x00\x00\x00\x00\x00\x00\x00\xE8\x00\x00\x00\x00\x59\xC3\x6A\x00");
+	int localEntPtr = *(*((int**)((int)lpPtr + 1)) + 4);
+	
+	LuaEntity *localEnt = new LuaEntity(0);
+	localEnt->pEntity = localEntPtr;
+	return RefCountedPtr<LuaEntity>(localEnt);
 }
 
 void LuaEntity::UpdateEntity() const
 {
 	if (!pEntity)
 	{
-		pEntity = (int)GetEntityFromIndex(idx);
+		//pEntity = (int)GetEntityFromIndex(idx);
 	}
 }
 
@@ -56,7 +60,15 @@ int LuaEntity::GetArmor() const
 	return 0;
 }
 
-int LuaEntity::ShotsFired() const
+RefCountedPtr<LuaVector3> LuaEntity::GetOrigin() const
+{
+	UpdateEntity(); if (!pEntity) return 0;
+	static int offset = g_pVars->GetOffset("DT_BaseEntity", "m_vecOrigin");
+	float* pOrigin = (float*)(pEntity + offset); // is this safe? No.
+	return RefCountedPtr<LuaVector3>(new LuaVector3(pOrigin[0], pOrigin[1], pOrigin[2]));
+}
+
+int LuaEntity::GetShotsFired() const
 {
 	return 0;
 }
@@ -67,3 +79,4 @@ void LuaEntity::SetFlags(const int& fl)
 	static int offset = g_pVars->GetOffset("DT_BasePlayer", "m_fFlags");
 	*(int*)(pEntity + offset) = fl;
 }
+
