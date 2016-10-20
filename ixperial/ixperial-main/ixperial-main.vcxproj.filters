@@ -19,6 +19,9 @@
     <Filter Include="Engine">
       <UniqueIdentifier>{8a362e3d-e013-4d84-86e0-695efffc2c91}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LuaAPI\GUI">
+      <UniqueIdentifier>{7183f7ef-2903-492f-b417-0d7c96f207c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -78,6 +81,12 @@
     <ClInclude Include="lua-vector.h">
       <Filter>LuaAPI</Filter>
     </ClInclude>
+    <ClInclude Include="lua-guiobject.h">
+      <Filter>LuaAPI\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="base-vgui.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -127,6 +136,9 @@
     </ClCompile>
     <ClCompile Include="lua-vector.cpp">
       <Filter>LuaAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="lua-guiobject.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

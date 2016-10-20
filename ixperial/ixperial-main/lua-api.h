@@ -2,6 +2,7 @@
 
 #include "lua-vector.h"
 #include "lua-event.h"
+#include "lua-guiobject.h"
 #include "lua-ucmd.h"
 #include "lua-entity.h"
 

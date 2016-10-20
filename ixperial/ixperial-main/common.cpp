@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-typedef void(__stdcall *PaintTraverseFn)(int vguiPanel, bool forceRepaint, bool allowForce);
+typedef void(__stdcall *PaintTraverseFn)(void* vguiPanel, bool forceRepaint, bool allowForce);
 typedef void(__fastcall *CreateMoveFn)(void* _this, void* edx, float frameTime, void* ucmd);
 //typedef void(__fastcall *CHLCreateMoveFn)(void* _this, void* edx, int sequence, float frameTime, bool active);
 //typedef void(__fastcall *FrameStageNotifyFn)(void* _this, void* edx, clientStageType stage);
@@ -10,6 +10,8 @@ typedef void(__fastcall *OverrideViewFn)(void* _this, void* edx, void* pSetup);
 CreateMoveFn orCreateMove;
 void __fastcall hkCreateMove(void* _this, void* edx, float frameTime, CUserCmd* ucmd);
 
+PaintTraverseFn orPaintTraverse;
+void __stdcall hkPaintTraverse(void* vgui, bool forceRepaint, bool allowForce);
 
 void* CSGO::GetInterface(std::string dll, std::string name)
 {
@@ -23,10 +25,13 @@ void CSGO::LoadEngineHooks()
 	clientModeVt = (void*)**(int**)((char*)clientModeVt + 5); // hacky way of getting clientmode VT from a method in client vt
 
 	VMTHook::Hook("ClientMode", clientModeVt);
+	VMTHook::Hook("IPanel", CSGO::GetVGUI());
 
 	orCreateMove = (CreateMoveFn)VMTHook::WriteVMTMethod("ClientMode", 24, hkCreateMove);
 
+
 	VMTHook::EnableHook("ClientMode");
+	VMTHook::EnableHook("IPanel");
 }
 
 void CSGO::UnloadEngineHooks()
@@ -55,4 +60,14 @@ void __fastcall hkCreateMove(void* _this, void* edx, float frameTime, CUserCmd* 
 			break;
 		}
 	}
+}
+
+void __stdcall hkPaintTraverse(void* vgui, bool forceRepaint, bool allowForce)
+{
+	orPaintTraverse(vgui, forceRepaint, allowForce);
+
+	// Invoke lua event
+	lua_getglobal(luacs->L, "invokeEvent");
+	lua_pushstring(luacs->L, "painttraverse");
+	lua_pcall(luacs->L, 1, 0, 0);
 }

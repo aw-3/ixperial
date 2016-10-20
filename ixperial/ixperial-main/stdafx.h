@@ -27,6 +27,7 @@
 #include "base-engine.h"
 #include "base-client.h"
 #include "base-input.h"
+#include "base-vgui.h"
 #include "netvar-manager.h"
 #include "SignatureScanner.h"
 #include "vmt-hook.h"
