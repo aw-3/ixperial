@@ -26,6 +26,7 @@ public:
 	int GetArmor() const;
 	RefCountedPtr<LuaVector3> GetOrigin() const;
 	int GetShotsFired() const;
+	RefCountedPtr<LuaVector3> GetAimPunch() const;
 
 	// Write properties
 	void SetFlags(const int &fl);

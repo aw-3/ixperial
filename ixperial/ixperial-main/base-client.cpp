@@ -2,7 +2,7 @@
 
 CSGO::Client* CSGO::GetClient()
 {
-	return (Client*)GetInterface("client.dll", "VClient017");
+	return (Client*)GetInterface("client.dll", "VClient018");
 }
 
 void* CSGO::GetClientHandle()

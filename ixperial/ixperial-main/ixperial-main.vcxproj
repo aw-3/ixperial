@@ -170,6 +170,7 @@
     <ClCompile Include="base-client.cpp" />
     <ClCompile Include="base-engine.cpp" />
     <ClCompile Include="base-input.cpp" />
+    <ClCompile Include="base-vgui.cpp" />
     <ClCompile Include="checksum.cpp" />
     <ClCompile Include="common.cpp" />
     <ClCompile Include="dllmain.cpp">

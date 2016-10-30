@@ -41,6 +41,8 @@ void LuaCS::SetupClasses()
 		.addProperty("flags", &LuaEntity::GetFlags, &LuaEntity::SetFlags)
 		.addProperty("health", &LuaEntity::GetHealth)
 		.addProperty("origin", &LuaEntity::GetOrigin)
+		.addProperty("shotsFired", &LuaEntity::GetShotsFired)
+		.addProperty("aimPunch", &LuaEntity::GetAimPunch)
 		
 		.endClass();
 
@@ -118,6 +120,41 @@ void LuaCS::SetupClosures()
 		}
 	);
 	lua_setglobal(L, "isKeyDown");
+
+	lua_pushcfunction(L, [](lua_State *L)
+		-> int
+	{
+		float* viewAngles = CSGO::GetClientState()->GetViewAngles();
+		if (!viewAngles)
+			return 0;
+
+		luabridge::push(L, RefCountedPtr<LuaVector3>(new LuaVector3(viewAngles[0], viewAngles[1], viewAngles[2])));
+		return 1;
+	}
+	);
+	lua_setglobal(L, "getViewAngles");
+
+	lua_pushcfunction(L, [](lua_State *L)
+		-> int
+	{
+		luaL_checktype(L, 1, LUA_TUSERDATA);
+
+		float* viewAngles = CSGO::GetClientState()->GetViewAngles();
+		if (!viewAngles)
+			return 0;
+
+		LuaVector3 *vec3 = (LuaVector3*)lua_touserdata(L, 1);
+
+		if (!vec3) return 0;
+
+		viewAngles[0] = vec3->x;
+		viewAngles[1] = vec3->y;
+		viewAngles[2] = vec3->z;
+		
+		return 0;
+	}
+	);
+	lua_setglobal(L, "setViewAngles");
 }
 
 void LuaCS::SetupGlobalConstants()

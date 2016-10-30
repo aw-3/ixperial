@@ -70,7 +70,17 @@ RefCountedPtr<LuaVector3> LuaEntity::GetOrigin() const
 
 int LuaEntity::GetShotsFired() const
 {
-	return 0;
+	UpdateEntity(); if (!pEntity) return 0;
+	static int offset = g_pVars->GetOffset("DT_CSPlayer", "m_iShotsFired");
+	return *(int*)(pEntity + offset);
+}
+
+RefCountedPtr<LuaVector3> LuaEntity::GetAimPunch() const
+{
+	UpdateEntity(); if (!pEntity) return 0;
+	static int offset = g_pVars->GetOffset("DT_CSPlayer", "m_aimPunchAngle");
+	float* pAimpunch = (float*)(pEntity + offset);
+	return RefCountedPtr<LuaVector3>(new LuaVector3(pAimpunch[0], pAimpunch[1], pAimpunch[2]));
 }
 
 void LuaEntity::SetFlags(const int& fl)

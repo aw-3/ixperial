@@ -17,6 +17,6 @@ public:
 	void SetSize(const RefCountedPtr<LuaVector2> &size);
 
 private:
-	virtual void DoPaintTraverse();
-	virtual void DoCreateMove();
+	virtual void DoPaintTraverse() = 0;
+	virtual void DoCreateMove() = 0;
 };

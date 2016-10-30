@@ -2,8 +2,12 @@
 
 namespace CSGO {
 	class IVEngine;
+	class IVClientState;
 
 	IVEngine* GetEngine();
+	void* GetEngineHandle();
+
+	IVClientState* GetClientState();
 
 	class IVEngine
 	{
@@ -25,4 +29,9 @@ namespace CSGO {
 		void ExecuteClientCmd(const char *szCmdString);
 	};
 
+	class IVClientState
+	{
+	public:
+		float* GetViewAngles();
+	};
 }

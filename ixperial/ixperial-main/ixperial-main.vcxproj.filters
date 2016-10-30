@@ -131,14 +131,17 @@
     <ClCompile Include="lua-ucmd.cpp">
       <Filter>LuaAPI</Filter>
     </ClCompile>
-    <ClCompile Include="base-input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="lua-vector.cpp">
       <Filter>LuaAPI</Filter>
     </ClCompile>
     <ClCompile Include="lua-guiobject.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="base-input.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="base-vgui.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
